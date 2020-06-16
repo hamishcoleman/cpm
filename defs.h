@@ -298,4 +298,7 @@ char *bdos_decode(int n);
 int bdos_fcb(int n);
 void bdos_fcb_dump(z80info *z80);
 
+/* vt.c */
+extern int opt_adm3a;
+
 #endif /* __DEFS_H_ */

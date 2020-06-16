@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include "vt.h"
 
+int opt_adm3a = 0;
 int last = -1;
 
 int kpoll(int w)
@@ -78,6 +79,8 @@ int kget(int w)
         }
 
         c = kpoll(w);
+
+    if (opt_adm3a) {
         if (c != 27) {
                 return c;
         }
@@ -156,6 +159,9 @@ int kget(int w)
         	kpush(c);
         	return 27;
         }
+    } else {
+        return c;
+    }
 }
 
 /*
@@ -184,6 +190,7 @@ void vt52(int c) {	/* simple vt52,adm3a => ANSI conversion */
 	log = fopen("cpm.out", "w");
     fputc(c, log);
 #endif
+    if (opt_adm3a) {
     switch (state) {
     case 0:
 	switch (c) {
@@ -337,4 +344,7 @@ void vt52(int c) {	/* simple vt52,adm3a => ANSI conversion */
     case 9:
 	state = 0;
     } 
+    } else {
+        putch(c);
+    }
 }

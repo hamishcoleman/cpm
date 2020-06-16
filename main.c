@@ -1061,6 +1061,8 @@ main(int argc, const char *argv[])
 				trace_bdos = 1;
 			} else if (!strcmp(argv[x], "--strace")) {
 				strace = 1;
+			} else if (!strcmp(argv[x], "--adm3a")) {
+				opt_adm3a = 1;
 			} else {
 				fprintf(stderr, "Unknown option %s\n", argv[x]);
 				exit(1);
@@ -1083,6 +1085,7 @@ main(int argc, const char *argv[])
 		fprintf(stderr, "    --nobdos       Do not emulate BDOS: only emulate BIOS\n");
 		fprintf(stderr, "                   Real disk images will be used.        \n");
 		fprintf(stderr, "    --trace_bdos   Trace BDOS calls\n");
+		fprintf(stderr, "    --adm3a        turn on ADM-3A to vt100\n");
 		fprintf(stderr, "\n");
 		exit(0);
 	}
