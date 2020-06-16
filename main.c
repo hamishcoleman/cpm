@@ -42,7 +42,7 @@
 #	endif
 #endif
 
-#define INTR_CHAR	31	/* control-underscore */
+#define INTR_CHAR	0x1d	/* control-right bracket */
 
 extern int errno;
 
